@@ -241,9 +241,7 @@ class ReimbursementAccountPage extends React.Component {
                         <ValidationStep />
                     )}
                     {currentStep === CONST.BANK_ACCOUNT.STEP.ENABLE && (
-                        <EnableStep
-                            achData={this.props.reimbursementAccount.achData}
-                        />
+                        <EnableStep achData={achData} />
                     )}
                     <WorkspaceResetBankAccountModal />
                 </KeyboardAvoidingView>
