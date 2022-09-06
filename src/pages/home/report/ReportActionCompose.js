@@ -444,8 +444,6 @@ class ReportActionCompose extends React.Component {
         }
         this.setState({isFullComposerAvailable: false});
 
-        // Important to reset the selection on Submit action
-        this.textInput.setNativeProps({selection: {start: 0, end: 0}});
         return trimmedComment;
     }
 
@@ -497,7 +495,7 @@ class ReportActionCompose extends React.Component {
 
         return (
             <View style={[
-                shouldShowReportRecipientLocalTime && !this.props.network.isOffline && styles.chatItemComposeWithFirstRow,
+                shouldShowReportRecipientLocalTime && !lodashGet(this.props.network, 'isOffline') && styles.chatItemComposeWithFirstRow,
                 this.props.isComposerFullSize && styles.chatItemFullComposeRow,
             ]}
             >

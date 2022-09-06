@@ -333,16 +333,6 @@ function User_UploadAvatar(parameters) {
 }
 
 /**
- * Runs command that will fix malformed data in a users account and also run migrations.
- *
- * @returns {Promise}
- */
-function User_FixAccount() {
-    const commandName = 'User_FixAccount';
-    return Network.post(commandName);
-}
-
-/**
  * @param {Object} parameters
  * @param {Number} parameters.accountID
  * @param {String} parameters.validateCode
@@ -485,18 +475,6 @@ function BankAccount_SetupWithdrawal(parameters) {
 
 /**
  * @param {Object} parameters
- * @param {Number} parameters.bankAccountID
- * @param {String} parameters.ownerEmail
- * @returns {Promise}
- */
-function DeleteBankAccount(parameters) {
-    const commandName = 'DeleteBankAccount';
-    requireParameters(['bankAccountID'], parameters, commandName);
-    return Network.post(commandName, parameters);
-}
-
-/**
- * @param {Object} parameters
  * @param {Number} [parameters.latitude]
  * @param {Number} [parameters.longitude]
  * @returns {Promise}
@@ -623,19 +601,6 @@ function CreatePolicyRoom(parameters) {
 }
 
 /**
- * Renames a user-created policy room
- * @param {Object} parameters
- * @param {String} parameters.reportID
- * @param {String} parameters.reportName
- * @return {Promise}
- */
-function RenameReport(parameters) {
-    const commandName = 'RenameReport';
-    requireParameters(['reportID', 'reportName'], parameters, commandName);
-    return Network.post(commandName, parameters);
-}
-
-/**
  * Transfer Wallet balance and takes either the bankAccoundID or fundID
  * @param {Object} parameters
  * @param {String} [parameters.bankAccountID]
@@ -668,9 +633,7 @@ export {
     CreateChatReport,
     CreateLogin,
     CreatePolicyRoom,
-    RenameReport,
     DeleteLogin,
-    DeleteBankAccount,
     Get,
     GetStatementPDF,
     GetIOUReport,
@@ -696,7 +659,6 @@ export {
     User_IsUsingExpensifyCard,
     User_SecondaryLogin_Send,
     User_UploadAvatar,
-    User_FixAccount,
     CreateIOUTransaction,
     CreateIOUSplit,
     ValidateEmail,
