@@ -21,6 +21,7 @@ import ONYXKEYS from '../../../ONYXKEYS';
 import AddressSearch from '../../../components/AddressSearch';
 import * as ComponentUtils from '../../../libs/ComponentUtils';
 import Form from '../../../components/Form';
+import AddressForm from '../../ReimbursementAccount/AddressForm';
 
 const propTypes = {
     /* Onyx Props */
@@ -149,28 +150,7 @@ class DebitCardPage extends Component {
                             />
                         </View>
                     </View>
-                    <View>
-                        <AddressSearch
-                            inputID="addressStreet"
-                            label={this.props.translate('addDebitCardPage.billingAddress')}
-                            containerStyles={[styles.mt4]}
-                        />
-                    </View>
-                    <View style={[styles.flexRow, styles.mt4]}>
-                        <View style={[styles.flex2, styles.mr2]}>
-                            <TextInput
-                                inputID="addressZipCode"
-                                label={this.props.translate('common.zip')}
-                                keyboardType={CONST.KEYBOARD_TYPE.NUMBER_PAD}
-                                maxLength={CONST.BANK_ACCOUNT.MAX_LENGTH.ZIP_CODE}
-                            />
-                        </View>
-                        <View style={[styles.flex1]}>
-                            <StatePicker
-                                inputID="addressState"
-                            />
-                        </View>
-                    </View>
+                    <AddressForm streetTranslationKey="common.companyAddress" />
                     <View style={[styles.mt4]}>
                         <TextInput
                             inputID="password"
