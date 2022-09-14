@@ -158,6 +158,9 @@ class Form extends React.Component {
                     this.validate(this.inputValues);
                 },
                 onInputChange: (value, key) => {
+                    // city input is not trigger this log
+                    // eslint-disable-next-line no-console
+                    console.log({value, inputID});
                     const inputKey = key || inputID;
                     this.inputValues[inputKey] = value;
                     const inputRef = this.inputRefs[inputKey];
