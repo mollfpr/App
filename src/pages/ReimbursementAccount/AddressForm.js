@@ -14,7 +14,7 @@ const propTypes = {
     streetTranslationKey: PropTypes.string.isRequired,
 
     /** Callback fired when a field changes. Passes args as {[fieldName]: val} */
-    onFieldChange: PropTypes.func.isRequired,
+    onFieldChange: PropTypes.func,
 
     /** Form values */
     values: PropTypes.shape({
@@ -45,6 +45,7 @@ const defaultProps = {
         zipCode: '',
     },
     errors: {},
+    onFieldChange: () => {},
 };
 
 const AddressForm = props => (
@@ -60,10 +61,8 @@ const AddressForm = props => (
         <View style={[styles.flexRow, styles.mt4]}>
             <View style={[styles.flex2, styles.mr2]}>
                 <TextInput
+                    inputID="city"
                     label={props.translate('common.city')}
-                    value={props.values.city}
-                    onChangeText={value => props.onFieldChange({city: value})}
-                    errorText={props.errors.city ? props.translate('bankAccount.error.addressCity') : ''}
                 />
             </View>
             <View style={[styles.flex1]}>
